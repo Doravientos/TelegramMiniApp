@@ -42,21 +42,20 @@ npm run {script}
 
 ## Run
 
-> ### Important
-> Your application should always be launched in the
-context of Telegram application. You can't just run the application and open it directly in your 
-browser via `http://localhost:3000`. Launching application this way will  lead to errors, as long
-as this environment does not provide the required Telegram Mini Apps API.
+The first important thing to note here is that the application should always be launched in the
+context of Telegram application. You can't just run the application and open it directly in your
+browser. Opening the application this way will surely lead to errors, as long as this environment
+does not provide required Telegram Mini Apps functionality.
 
-Before you start make sure you have already created Telegram Bot. Here is the [comprehensive guide](https://docs.telegram-mini-apps.com/platform/creating-new-app) how to do it.
+Telegram Mini Apps environment could be any specified
+in the [documentation](https://docs.telegram-mini-apps.com/platform/about#supported-applications).
 
-When application is created successfully, run it using the `dev` script and open inside web version of [Telegram](https://web.telegram.org/k/). Web version is the most conviniet way to develop Telegram Mini App right away:
+So, before starting the application, make sure you have already created it in the Telegram
+system. Here is the [guide](https://docs.telegram-mini-apps.com/platform/creating-new-app) how to do
+it.
 
-```Bash
-npm run dev
-```
-
-After this you will see this in your terminal.
+When the application is created successfully, run it using the `dev` script and open inside
+Telegram:
 
 ```Bash
   VITE ready in 275 ms
