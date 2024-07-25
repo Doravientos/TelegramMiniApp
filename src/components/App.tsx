@@ -1,11 +1,8 @@
 import { useIntegration } from '@telegram-apps/react-router-integration';
-import { LoginButton } from '@telegram-auth/react';
 import {
   bindMiniAppCSSVars,
   bindThemeParamsCSSVars,
   bindViewportCSSVars,
-  initNavigator,
-  useLaunchParams,
   initNavigator,
   useLaunchParams,
   useMiniApp,
@@ -14,7 +11,6 @@ import {
 } from '@telegram-apps/sdk-react';
 import { AppRoot } from '@telegram-apps/telegram-ui';
 import { type FC, useEffect, useMemo } from 'react';
-import { Navigate, Route, Router, Routes } from 'react-router-dom';
 import { Navigate, Route, Router, Routes } from 'react-router-dom';
 
 import { routes } from '@/navigation/routes.tsx';
