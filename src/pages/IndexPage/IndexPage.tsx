@@ -12,11 +12,24 @@ export const IndexPage: FC = () => {
       <Section header="Features" footer="You can use these pages to learn more about features, provided by Telegram Mini Apps and other useful projects">
         <LoginButton
           botUsername={'testoooblizadibot'}
-          authCallbackUrl="/"
-          buttonSize="large" // "large" | "medium" | "small"
-          cornerRadius={5} // 0 - 20
-          showAvatar={true} // true | false
-          lang="en"
+          onAuthCallback={(user) => {
+            console.log(user);
+            // call your backend here to validate the user and sign in the user
+            fetch('https://slav-bot-backend.onrender.com/api/v1/auth', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(user),
+            })
+              .then((response) => response.json())
+              .then((data) => {
+                console.log('Success:', data);
+              })
+              .catch((error) => {
+                console.error('Error:', error);
+              });
+          }}
         />
         <Link to="/ton-connect">
           <Cell before={<Image src={tonSvg} style={{ backgroundColor: '#007AFF' }} />} subtitle="Connect your TON wallet">
