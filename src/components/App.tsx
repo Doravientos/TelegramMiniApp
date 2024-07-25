@@ -3,21 +3,19 @@ import {
   bindMiniAppCSSVars,
   bindThemeParamsCSSVars,
   bindViewportCSSVars,
-  initNavigator, useLaunchParams,
+  initNavigator,
+  useLaunchParams,
   useMiniApp,
   useThemeParams,
   useViewport,
 } from '@telegram-apps/sdk-react';
 import { AppRoot } from '@telegram-apps/telegram-ui';
 import { type FC, useEffect, useMemo } from 'react';
-import {
-  Navigate,
-  Route,
-  Router,
-  Routes,
-} from 'react-router-dom';
+import { Navigate, Route, Router, Routes } from 'react-router-dom';
 
 import { routes } from '@/navigation/routes.tsx';
+
+import { LoginButton } from '@telegram-auth/react';
 
 export const App: FC = () => {
   const lp = useLaunchParams();
@@ -50,14 +48,23 @@ export const App: FC = () => {
   }, [navigator]);
 
   return (
-    <AppRoot
-      appearance={miniApp.isDark ? 'dark' : 'light'}
-      platform={['macos', 'ios'].includes(lp.platform) ? 'ios' : 'base'}
-    >
+    <AppRoot appearance={miniApp.isDark ? 'dark' : 'light'} platform={['macos', 'ios'].includes(lp.platform) ? 'ios' : 'base'}>
+      <div className="App">
+        <LoginButton
+          botUsername={'7181650102:AAEdYcSGBGT_PKCHHuvEaHL3SeWxOo1YdUQ'}
+          authCallbackUrl="/path/to/callback/url"
+          buttonSize="large" // "large" | "medium" | "small"
+          cornerRadius={5} // 0 - 20
+          showAvatar={true} // true | false
+          lang="en"
+        />
+      </div>
       <Router location={location} navigator={reactNavigator}>
         <Routes>
-          {routes.map((route) => <Route key={route.path} {...route} />)}
-          <Route path='*' element={<Navigate to='/'/>}/>
+          {routes.map((route) => (
+            <Route key={route.path} {...route} />
+          ))}
+          <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </Router>
     </AppRoot>
