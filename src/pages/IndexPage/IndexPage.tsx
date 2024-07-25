@@ -11,7 +11,7 @@ export const IndexPage: FC = () => {
     <List>
       <Section header="Features" footer="You can use these pages to learn more about features, provided by Telegram Mini Apps and other useful projects">
         <LoginButton
-          botUsername={'7181650102:AAEdYcSGBGT_PKCHHuvEaHL3SeWxOo1YdUQ'}
+          botUsername={'testoooblizadibot'}
           authCallbackUrl="/"
           buttonSize="large" // "large" | "medium" | "small"
           cornerRadius={5} // 0 - 20
