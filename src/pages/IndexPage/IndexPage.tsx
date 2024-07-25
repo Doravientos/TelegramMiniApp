@@ -12,7 +12,7 @@ export const IndexPage: FC = () => {
       <Section header="Features" footer="You can use these pages to learn more about features, provided by Telegram Mini Apps and other useful projects">
         <LoginButton
           botUsername={'testoooblizadibot'}
-          authCallbackUrl=""
+          authCallbackUrl="javascript:void(0)"
           onAuthCallback={(user) => {
             console.log(user);
             // call your backend here to validate the user and sign in the user
