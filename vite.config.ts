@@ -5,7 +5,7 @@ import basicSsl from '@vitejs/plugin-basic-ssl';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/reactjs-template',
+  base: '/TelegramMiniApp',
   plugins: [
     // Allows using React dev server along with building a React application with Vite.
     // https://npmjs.com/package/@vitejs/plugin-react-swc
