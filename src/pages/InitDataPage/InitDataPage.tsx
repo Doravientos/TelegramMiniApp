@@ -21,9 +21,10 @@ function getUserRows(user: User): DisplayDataRow[] {
 export const InitDataPage: FC = () => {
   const initDataRaw = useLaunchParams().initDataRaw;
   const initData = useInitData();
+  console.log('123123123123');
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-expect-error
-  console.log(window.Telegram.Utils.urlParseQueryString(window.Telegram.WebApp.initData));
+  console.log(window.Telegram.Utils.urlParseQueryString(initData));
 
   const initDataRows = useMemo<DisplayDataRow[] | undefined>(() => {
     if (!initData || !initDataRaw) {
