@@ -1,7 +1,6 @@
 import { type FC, useMemo } from 'react';
 import { useInitData, useLaunchParams, type User } from '@telegram-apps/sdk-react';
 import { List, Placeholder } from '@telegram-apps/telegram-ui';
-
 import { DisplayData, type DisplayDataRow } from '@/components/DisplayData/DisplayData.tsx';
 
 function getUserRows(user: User): DisplayDataRow[] {
@@ -22,7 +21,9 @@ function getUserRows(user: User): DisplayDataRow[] {
 export const InitDataPage: FC = () => {
   const initDataRaw = useLaunchParams().initDataRaw;
   const initData = useInitData();
-  console.log(initData);
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-expect-error
+  console.log(window.Telegram.Utils.urlParseQueryString(window.Telegram.WebApp.initData));
 
   const initDataRows = useMemo<DisplayDataRow[] | undefined>(() => {
     if (!initData || !initDataRaw) {
